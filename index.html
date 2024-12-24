@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="language-selector">
+        <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('hi')">हिंदी</button>
+    </div>
+
+    <div class="container">
+        <!-- Sign-Up Section -->
+        <div id="signup-section">
+            <h2 data-en="Sign Up" data-hi="साइन अप">Sign Up</h2>
+            <input type="text" id="signup-username" placeholder="Username">
+            <input type="password" id="signup-password" placeholder="Password">
+            <input type="password" id="signup-confirm-password" placeholder="Confirm Password">
+            <input type="password" id="signup-pin" placeholder="Enter PIN">
+            <!-- Date of Birth Field -->
+            <input type="date" id="signup-dob" placeholder="Date of Birth">
+            <button onclick="signUp()" data-en="Sign Up" data-hi="साइन अप करें">Sign Up</button>
+            <button onclick="switchToLogin()" data-en="Already have an account? Login" data-hi="पहले से खाता है? लॉग इन करें">Already have an account? Login</button>
+        </div>
+
+        <!-- Login Section -->
+        <div id="login-section" style="display: none;">
+            <h2 data-en="Login" data-hi="लॉग इन">Login</h2>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()" data-en="Login" data-hi="लॉग इन">Login</button>
+            <button onclick="forgotPasswordPage()" data-en="Forgot Password?" data-hi="पासवर्ड भूल गए?">Forgot Password?</button>
+            <button onclick="switchToSignUp()" data-en="Don't have an account? Sign Up" data-hi="खाता नहीं है? साइन अप करें">Don't have an account? Sign Up</button>
+        </div>
+
+        <!-- Forgot Password Section -->
+        <div id="forgot-password-section" style="display: none;">
+            <h2 data-en="Reset Password" data-hi="पासवर्ड रीसेट करें">Reset Password</h2>
+            <input type="text" id="forgot-username" placeholder="Enter your Username">
+            <input type="date" id="forgot-dob" placeholder="Enter your Date of Birth">
+            <input type="password" id="forgot-new-password" placeholder="Enter New Password">
+            <button onclick="resetPassword()">Reset Password</button>
+            <button onclick="switchToLogin()">Back to Login</button>
+        </div>
+
+        <!-- ATM Section -->
+        <div id="atm-section" style="display: none;">
+            <h2 data-en="ATM Services" data-hi="एटीएम सेवाएँ">ATM Services</h2>
+            <button onclick="showBalance()" class="atm-button" data-en="Check Balance" data-hi="बैलेंस चेक करें"><i class="fas fa-wallet"></i> Check Balance</button>
+            <button onclick="depositMoney()" class="atm-button" data-en="Deposit Money" data-hi="पैसे जमा करें"><i class="fas fa-plus-circle"></i> Deposit Money</button>
+            <button onclick="withdrawMoney()" class="atm-button" data-en="Withdraw Money" data-hi="पैसे निकालें"><i class="fas fa-minus-circle"></i> Withdraw Money</button>
+            <button onclick="changePin()" class="atm-button" data-en="Change PIN" data-hi="पिन बदलें"><i class="fas fa-key"></i> Change PIN</button>
+            <button onclick="showHistory()" class="atm-button" data-en="Transaction History" data-hi="लेन-देन इतिहास"><i class="fas fa-history"></i> Transaction History</button>
+            <button onclick="logout()" class="atm-button" data-en="Logout" data-hi="लॉगआउट"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <div id="atm-output" class="output"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
